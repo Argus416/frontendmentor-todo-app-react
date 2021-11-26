@@ -1,0 +1,2 @@
+1- clear completed fonction 
+2- deletedTodo

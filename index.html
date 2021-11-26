@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+        <link rel="stylesheet" href="style/style.css" />
+        <title>Frontend Mentor | Todo app</title>
+    </head>
+    <body class="dark-mode">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <h1>TODO</h1>
+                    <img class="mode-toggler" src="style/images/icon-sun.svg" alt="icon-sun" />
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <form class="form-new-task globalstyle">
+                    <label for="checkbox1" class="label-container">
+                        <input type="checkbox" id="checkbox1" />
+                        <span class="custom-checkbox"></span>
+                        <input type="text" class="input-new-task" placeholder="New Task" />
+                    </label>
+                </form>
+
+                <section>
+                    <div class="tasks">
+                        <ul></ul>
+
+                        <div class="options globalstyle">
+                            <p><span class="todos-left">5</span> items left</p>
+                            <div>
+                                <button class="active-option">All</button>
+                                <button>Active</button>
+                                <button>Completed</button>
+                            </div>
+                            <button class="clearTodosFromFinishedTodo">Clear Completed</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- <footer>
+                    <p>Drag and drop to recorder list</p>
+                </footer> -->
+            </div>
+        </main>
+
+        <script src="sandbox/sandbox.js"></script>
+    </body>
+</html>
