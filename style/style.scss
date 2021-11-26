@@ -52,7 +52,6 @@ img {
 header {
     min-height: 350px;
     height: 30vh;
-    width: 100vw;
     background-image: url(images/bg-desktop-dark.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -138,24 +137,13 @@ main {
     font-size: 20px;
     border-bottom: 1px solid $DarkGrayishBlueDark;
 
-    &::after {
-        content: "";
-        width: 25px;
-        height: 25px;
-        position: absolute;
-        right: 30px;
-        background-image: url(images/icon-cross.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        cursor: pointer;
-    }
-    .label-container {
+    .left {
         position: relative;
+
         input[type="checkbox"] {
             opacity: 0;
             margin-right: 2.3em;
         }
-
         .custom-checkbox {
             display: flex;
             align-items: center;
@@ -189,6 +177,15 @@ main {
                 z-index: 1;
             }
         }
+    }
+
+    .text-container {
+        display: block;
+        width: 84%;
+        .todo-text {
+            width: 100%;
+            margin-right: 10px;
+        }
         .label-text-active {
             color: $DarkGrayishBlueDark;
             position: relative;
@@ -202,6 +199,15 @@ main {
                 top: 10px;
                 background-color: $DarkGrayishBlueDark;
             }
+        }
+    }
+
+    .right {
+        position: absolute;
+        right: 35px;
+        img {
+            width: 20px;
+            cursor: pointer;
         }
     }
 }

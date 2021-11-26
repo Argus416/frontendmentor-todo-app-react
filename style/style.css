@@ -52,7 +52,6 @@ img {
 header {
   min-height: 350px;
   height: 30vh;
-  width: 100vw;
   background-image: url(images/bg-desktop-dark.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -165,28 +164,16 @@ main {
   border-bottom: 1px solid #777a92;
 }
 
-.task::after {
-  content: "";
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  right: 30px;
-  background-image: url(images/icon-cross.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-}
-
-.task .label-container {
+.task .left {
   position: relative;
 }
 
-.task .label-container input[type="checkbox"] {
+.task .left input[type="checkbox"] {
   opacity: 0;
   margin-right: 2.3em;
 }
 
-.task .label-container .custom-checkbox {
+.task .left .custom-checkbox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -205,13 +192,13 @@ main {
   border-radius: 50%;
 }
 
-.task .label-container .custom-checkbox:hover {
+.task .left .custom-checkbox:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(#57ddff), to(#c058f3));
   background: linear-gradient(#57ddff, #c058f3);
   cursor: pointer;
 }
 
-.task .label-container .custom-checkbox::after {
+.task .left .custom-checkbox::after {
   content: "";
   background-image: url(images/icon-check.svg);
   width: 10px;
@@ -221,7 +208,7 @@ main {
   position: absolute;
 }
 
-.task .label-container .custom-checkbox .helper-custom-checkbox {
+.task .left .custom-checkbox .helper-custom-checkbox {
   display: inline-block;
   width: 21px;
   height: 21px;
@@ -230,12 +217,22 @@ main {
   z-index: 1;
 }
 
-.task .label-container .label-text-active {
+.task .text-container {
+  display: block;
+  width: 84%;
+}
+
+.task .text-container .todo-text {
+  width: 100%;
+  margin-right: 10px;
+}
+
+.task .text-container .label-text-active {
   color: #777a92;
   position: relative;
 }
 
-.task .label-container .label-text-active::after {
+.task .text-container .label-text-active::after {
   content: "";
   display: inline-block;
   height: 1px;
@@ -244,6 +241,16 @@ main {
   left: 0;
   top: 10px;
   background-color: #777a92;
+}
+
+.task .right {
+  position: absolute;
+  right: 35px;
+}
+
+.task .right img {
+  width: 20px;
+  cursor: pointer;
 }
 
 .options {

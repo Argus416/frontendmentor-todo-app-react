@@ -13,10 +13,7 @@ const fetchdata = async () => {
         data = await response.text();
         data = JSON.parse(data);
 
-        // loading data in the front end
         innerHtml(data);
-
-        // Count todos left
         countTodos(data);
 
         AddTodo(data);
@@ -33,36 +30,24 @@ function innerHtml(data) {
         const completed = data[i].completed === true ? "label-text-active" : "";
 
         const todoTemplate = `
-            <li class="task globalstyle">
-                <label for="checkbox2" class="label-container">
-                    <input type="checkbox" id="checkbox2" />
-                    <span class="custom-checkbox">
-                        <span class="helper-custom-checkbox"></span>
-                    </span>
-                    <span class="${completed}">${data[i].title}</span>
-                </label>
+            <li class="task globalstyle" data-id="${data[i].id}">
+                    <div class="left">
+                        <input type="checkbox" id="checkbox2" />
+                        <span class="custom-checkbox">
+                            <span class="helper-custom-checkbox"></span>
+                        </span>
+                    </div>
+                    <div class="text-container">
+                            <span class="${completed} todo-text">${data[i].title}</span>
+                        </div>
+                    <div class="right">
+                        <img src="style/images/icon-cross.svg" alt="" class="x" />
+                    </div>
             </li>
-            `;
+        `;
 
         tasksList.innerHTML += todoTemplate;
     }
-    // data.forEach((element) => {
-    //     const completed = element.completed === true ? "label-text-active" : "";
-
-    //     const todoTemplate = `
-    //         <li class="task globalstyle">
-    //             <label for="checkbox2" class="label-container">
-    //                 <input type="checkbox" id="checkbox2" />
-    //                 <span class="custom-checkbox">
-    //                     <span class="helper-custom-checkbox"></span>
-    //                 </span>
-    //                 <span class="${completed}">${element.title}</span>
-    //             </label>
-    //         </li>
-    //         `;
-
-    //     tasksList.innerHTML += todoTemplate;
-    // });
 }
 
 function countTodos(data) {
@@ -71,12 +56,14 @@ function countTodos(data) {
 }
 
 function AddTodo(data) {
+    let id = parseInt(document.querySelector(".task").getAttribute("data-id")) + 1;
+
     formTodo.addEventListener("submit", function (e) {
         e.preventDefault();
         const todoText = inputNewTodo.value.trim();
         if (todoText.length) {
             const todo = {
-                userId: 1,
+                userId: id++,
                 title: todoText,
                 completed: false,
             };
@@ -86,6 +73,7 @@ function AddTodo(data) {
             innerHtml(data);
             countTodos(data);
             clearTodosFromFinishedTodo(data);
+            console.log(todo);
         } else {
             alert("Veuillez remplir le champ avant de soumettre");
         }
@@ -102,9 +90,9 @@ function clearTodosFromFinishedTodo(data) {
 
 function deletedTodo() {
     const todos = Array.from(document.querySelectorAll(".tasks ul li"));
-    console.log(todos);
+    // console.log(todos);
     todos.forEach((element) => {
-        console.log(element);
+        // console.log(element);
     });
 }
 
